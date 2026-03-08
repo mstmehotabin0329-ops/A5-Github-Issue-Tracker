@@ -15,16 +15,66 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
-    <style>
-        *{
-            font-family: "Geist", sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
+
 
 </head>
 
-<body class="text-[#F8FAFC]">
-    <h1 class="text-6xl bg-red-500">Welcome JavaScript</h1>
+<body class="bg-gray-200 min-h-screen flex justify-center items-center">
+    <section class="bg-white shadow-lg w-[520px] rounded-lg p-8">
+        <div class="space-y-5">
+            <div class="flex justify-center">
+                <img src="assets/github-logo.png" alt="">
+            </div>
+            <div class="text-center">
+                <h2 class="text-2xl font-semibold">GitHub Issues Tracker</h2>
+                <p class="text-[#64748B]">Sign in to manage your issues</p>
+            </div>
+
+        </div>
+
+
+        <div class="mb-6">
+
+
+            <label class="font-medium">Username</label> <br>
+            <input type="text" class="input w-full p-4" placeholder="Enter Username" />
+            <p class="text-purple-600">Default: admin</p>
+            <br>
+
+
+            <label class="font-medium">Password</label> <br>
+            <input type="password" class="input w-full p-4" placeholder="Enter Password" />
+            
+            <p class="text-purple-600">Default: admin123</p>
+            <br>
+
+            <button class="btn btn-primary mt-4 w-full">Sign In</button>
+        </div>
+         <div class="grid grid-cols-13">
+            <hr class="col-span-6 text-gray-300 mt-3">
+            <p class="text-center mb-4 col-span-1">OR</p> 
+            <hr class="col-span-6 text-gray-300 mt-3">
+         </div>
+
+        <div class="text-center space-y-2">
+            <h2 class="text-[#64748B]">Demo Credentials:</h2>
+            <div class="bg-gray-100 rounded-lg p-6">
+                <p><span class="font-semibold">Username:</span> admin</p>
+                <p><span class="font-semibold">Password:</span> admin123</p>
+                    
+            </div>
+        </div>
+
+
+
+
+
+    </section>
+
+
+
+
 
     <script src=""></script>
 </body>
