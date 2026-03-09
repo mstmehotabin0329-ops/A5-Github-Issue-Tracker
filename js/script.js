@@ -3,11 +3,12 @@ const allBtn = document.getElementById("all-btn");
 const openBtn = document.getElementById("open-btn");
 const closedBtn = document.getElementById("closed-btn");
 const countProjectIssue = document.getElementById("countProjectIssue");
+const issueDetailsMotal = document.getElementById("Issue-modal");
 
 let totalIssues = [];
 
 async function toggleStyle(id) {
-    // console.log(id, btns);
+    console.log(id);
 
     showloading();
     const btns = [allBtn, openBtn, closedBtn];
@@ -28,6 +29,9 @@ async function toggleStyle(id) {
     }
     else if (id === "open-btn") {
         loadOpenIssues();
+        
+        
+
     }
     else if (id === "closed-btn") {
         loadClosedIssues();
@@ -54,29 +58,36 @@ async function loadIssue() {
     hideloading();
     loadDisplay(totalIssues);
 
+
 }
+loadIssue();
+
+
+const cardContainer = document.getElementById("card-container");
 function loadDisplay(issues) {
-    const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
+
     issues.forEach(issue => {
+        const createElement = document.createElement('div');
+        createElement.className = "bg-base-100 card-md shadow-sm"
         // console.log(issue);
         let labelItems = "";
-        issue.labels.forEach(label => {
+        for (let label of issue.labels) {
             labelItems += `<div class="badge badge-warning">${label}</div>`
+        }
 
-        })
         const border = issue.status === "open" ? " border-t-2 border-green-500" : " border-t-2 border-purple-500"
         const logo = issue.status === "open" ? " assets/Open-Status.png" : " assets/Closed- Status .png"
 
 
-        const issueCard = `<div class="bg-base-100 card-md shadow-sm rounded-lg ${border} onclick="renderCard(${issue.id})"">
+        createElement.innerHTML = `<div class="rounded-lg ${border} onclick="openIssueModal(${issue.id})"">
                 <div class="card-body h-60 w-full object-cover">
                     <div class="flex justify-between">
                         <img src="${logo}" alt="">
-                            <div class="badge badge-soft badge-error rounded-full uppercase">${issue.priority}</div>
+                            <div class="badge badge-soft badge-error rounded-full uppercase ">${issue.priority}</div>
                     </div>
                     <h2 class="card-title">${issue.title}</h2>
-                    <p class="text-gray-500 line-clamp-2 mb-2">${issue.description}
+                    <p class="text-gray-500 line-clamp-2">${issue.description}
                     </p>
                     <div class = "flex gap-3 uppercase mb-3">
                     ${labelItems}
@@ -85,17 +96,23 @@ function loadDisplay(issues) {
 
                 </div>
                 <hr class="border-gray-500 ">
-                    <div class="gray mt-3 p-6">
-                        <p>${issue.priority}</p>
-                        <p>${issue.assignee}</p>
+                    <div class="flex justify-between mt-3 p-4">
+                        <div class="gray  text-sm">
+                            <p>Athour:${issue.priority}</p>
+                            <p>Assignee:${issue.assignee}</p>
+                        </div>
+                        <div class="text-sm gray text-right">
+                            <p> <span class="author-date">${issue.createdAt}</span></p>
+                            <p>Update:<span class="assignee-date">${issue.updatedAt}</span></p>
+                        </div>
                     </div>
             </div>
         `;
-        cardContainer.innerHTML += issueCard;
+        cardContainer.appendChild(createElement);
     });
 
-
 }
+
 
 async function loadOpenIssues() {
     showloading();
@@ -119,6 +136,10 @@ async function loadClosedIssues() {
 
 }
 
+function openIssueModal(id) {
+    console.log(id);
+    issueDetailsMotal.showModal();
+
+}
 
 
-loadIssue();

@@ -32,7 +32,7 @@
                 </a>
             </div>
             <div class="flex gap-2">
-                <input id="search-issue" type="text" placeholder="Search issues.." 
+                <input id="search-issue" type="text" placeholder="Search issues.."
                     class="input input-bordered w-24 md:w-auto hidden md:block" />
                 <div class="sm:hidden flex items-center mr-2"><i class="fa-solid fa-magnifying-glass"></i></div>
                 <div class="dropdown dropdown-end">
@@ -72,7 +72,7 @@
                 <div class="flex gap-2">
                     <img src="assets/Aperture.png" alt="" class="bg-gray-300 rounded-full p-2">
                     <div>
-                        <h2  class="font-semibold text-xl"><span id="countProjectIssue">0</span> Issues</h2>
+                        <h2 class="font-semibold text-xl"><span id="countProjectIssue">0</span> Issues</h2>
                         <p class="text-gray-500">Track and manage your project issues</p>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
             </div>
             <hr class="text-gray-300 border">
             <div id="card-container" class="p-4 grid grid-cols-1 sm:grid-cols-3 gap-6 ">
-                
+
                 <!-- api card add dynamically -->
 
                 <!-- <div class="card bg-base-100 card-md shadow-sm border-t border-green-500">
@@ -114,9 +114,9 @@
                     </div>
 
                 </div> -->
-                
+
             </div>
-    
+
             <!-- loading spinner -->
             <div id="loading-spinner" class="hidden items-center justify-center [h-60vh]">
                 <span class="loading loading-spinner loading-xl"></span>
@@ -124,6 +124,38 @@
         </div>
 
     </section>
+    <!-- modal -->
+    <!-- Open the modal using ID.showModal() method -->
+    <button class="btn" onclick="Issue-modal.showModal()">open modal</button>
+    <dialog id="Issue-modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <h2 class="card-title">Fix navigation menu on mobile devices</h2>
+            <p><span class="badge badge-success">Success</span>•<span>Opened by</span>•</p>
+            <div class="flex gap-3 uppercase mb-3">
+                ${labelItems}
+            </div>
+
+            <div>
+                <div>
+                    <p>Assignee</p>
+                    <p></p>
+                </div>
+                <div>
+                    <span>Priority:</span>
+                    <div class="badge badge-secondary">Secondary</div>
+                </div>
+            </div>
+            <p class="text-gray-500 line-clamp-2">The navigation menu doesn't collapse properly on mobile
+                devices. Need to fix the responsive behavior.
+            </p>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn btn-primary">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 
     <script src="js/script.js"></script>
 
