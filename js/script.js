@@ -9,7 +9,7 @@ let totalIssues = [];
 async function toggleStyle(id) {
     // console.log(id, btns);
 
-    // showloading();
+    showloading();
     const btns = [allBtn, openBtn, closedBtn];
     btns.forEach(btn => {
         btn.classList.remove("btn-primary", "text-white");
@@ -20,20 +20,38 @@ async function toggleStyle(id) {
     const activeBtn = document.getElementById(id);
     activeBtn.classList.remove("btn-active");
     activeBtn.classList.add("btn-primary", "text-white");
-    // hideloading();
+    hideloading();
 
+    if (id === "all-btn") {
 
+        loadIssue();
+    }
+    else if (id === "open-btn") {
+        loadOpenIssues();
+    }
+    else if (id === "closed-btn") {
+        loadClosedIssues();
+    }
+
+}
+// loading spinner add
+function showloading() {
+    loadingSpinner.classList.remove('hidden');
+    loadingSpinner.classList.add('flex');
+}
+function hideloading() {
+    loadingSpinner.classList.add('hidden');
 }
 
 
 
 async function loadIssue() {
-    // showloading();
+    showloading();
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     totalIssues = data.data
     countProjectIssue.innerText = totalIssues.length;
-    // hideloading();
+    hideloading();
     loadDisplay(totalIssues);
 
 }
@@ -80,23 +98,23 @@ function loadDisplay(issues) {
 }
 
 async function loadOpenIssues() {
-    // showloading();
+    showloading();
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     const openData = data.data.filter(issue => issue.status === "open");
     countProjectIssue.innerText = openData.length;
-    // hideloading();
+    hideloading();
     loadDisplay(openData);
 
 
 }
 async function loadClosedIssues() {
-    // showloading();
+    showloading();
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     const closedData = data.data.filter(issue => issue.status === "closed");
     countProjectIssue.innerText = closedData.length;
-    // hideloading();
+    hideloading();
     loadDisplay(closedData);
 
 }
