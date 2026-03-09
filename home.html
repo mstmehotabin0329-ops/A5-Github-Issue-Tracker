@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issue Tracker</title>
+    <!-- daisyUI and tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesone cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="bg-gray-200">
+    <header class="bg-base-100 shadow-sm">
+        <div class="navbar w-11/12 m-auto">
+            <div class="flex-1">
+                <a href="" class="flex items-center gap-2">
+                    <img src="assets/logo.png" alt="">
+                    <span class="text-2xl font-semibold">GitHub Issues Tracker</span>
+                </a>
+            </div>
+            <div class="flex gap-2">
+                <input id="search-issue" type="text" placeholder="Search issues.." 
+                    class="input input-bordered w-24 md:w-auto hidden md:block" />
+                <div class="sm:hidden flex items-center mr-2"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button">
+                        <div class="">
+                            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Issue</button>
+                        </div>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li>
+                            <a class="justify-between">
+                                Profile
+                                <span class="badge">New</span>
+                            </a>
+                        </li>
+                        <li><a>Settings</a></li>
+                        <li><a>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="w-10/12 mx-auto pb-9">
+        <div id="btn-container" class="mt-10 p-4 rounded-lg bg-white flex gap-4">
+            <button id="all-btn" onclick="toggleStyle('all-btn')" class="btn btn-primary">All</button>
+            <button id="open-btn" onclick="toggleStyle('open-btn')" class="btn">Open</button>
+            <button id="closed-btn" onclick="toggleStyle('closed-btn')" class="btn">Closed</button>
+
+
+        </div>
+
+        </div>
+
+        <div id="" class="rounded-lg bg-white mt-4 shadow-sm bg-base-200">
+            <div class="flex justify-between items-center p-4 ">
+                <div class="flex gap-2">
+                    <img src="assets/Aperture.png" alt="" class="bg-gray-300 rounded-full p-2">
+                    <div>
+                        <h2  class="font-semibold text-xl"><span id="countProjectIssue">0</span> Issues</h2>
+                        <p class="text-gray-500">Track and manage your project issues</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex gap-2 items-center">
+                        <div class="bg-green-500 w-3 h-3 rounded-full"></div>
+                        <p>Open</p>
+                    </div>
+                    <div class="flex gap-2 items-center">
+                        <div class="bg-purple-500 w-3 h-3 rounded-full"></div>
+                        <p>Closed</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="text-gray-300 border">
+            <div id="card-container" class="p-4 grid grid-cols-1 sm:grid-cols-3 gap-6 ">
+                
+                <!-- api card add dynamically -->
+
+                <!-- <div class="card bg-base-100 card-md shadow-sm border-t border-green-500">
+                    <div class="card-body">
+                        <div class="flex justify-between">
+                            <img src="assets/Open-Status.png" alt="">
+                            <div class="badge badge-soft badge-error px-4 py-1 rounded-full uppercase">high</div>
+                        </div>
+                        <h2 class="card-title">Fix navigation menu on mobile devices</h2>
+                        <p class="text-gray-500 line-clamp-2">The navigation menu doesn't collapse properly on mobile
+                            devices. Need to fix the responsive behavior.
+                        </p>
+                        <div class="flex gap-1">
+
+                        </div>
+
+                    </div>
+                    <hr class="border-gray-500">
+                    <div class="gray">
+                        <p>john_doe</p>
+                        <p>jane_smith</p>
+                    </div>
+
+                </div> -->
+                
+            </div>
+    
+            <!-- loading spinner -->
+            <div id="loading-spinner" class="hidden items-center justify-center [h-60vh]">
+                <span class="loading loading-spinner loading-xl"></span>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>
