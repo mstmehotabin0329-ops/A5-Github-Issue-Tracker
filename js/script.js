@@ -6,16 +6,34 @@ const countProjectIssue = document.getElementById("countProjectIssue");
 
 let totalIssues = [];
 
+async function toggleStyle(id) {
+    // console.log(id, btns);
+
+    // showloading();
+    const btns = [allBtn, openBtn, closedBtn];
+    btns.forEach(btn => {
+        btn.classList.remove("btn-primary", "text-white");
+        btn.classList.add("btn-active");
+
+    });
+
+    const activeBtn = document.getElementById(id);
+    activeBtn.classList.remove("btn-active");
+    activeBtn.classList.add("btn-primary", "text-white");
+    // hideloading();
+
+
+}
 
 
 
 async function loadIssue() {
-    showloading();
+    // showloading();
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     totalIssues = data.data
     countProjectIssue.innerText = totalIssues.length;
-    hideloading();
+    // hideloading();
     loadDisplay(totalIssues);
 
 }
@@ -60,4 +78,29 @@ function loadDisplay(issues) {
 
 
 }
+
+async function loadOpenIssues() {
+    // showloading();
+    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+    const data = await res.json();
+    const openData = data.data.filter(issue => issue.status === "open");
+    countProjectIssue.innerText = openData.length;
+    // hideloading();
+    loadDisplay(openData);
+
+
+}
+async function loadClosedIssues() {
+    // showloading();
+    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+    const data = await res.json();
+    const closedData = data.data.filter(issue => issue.status === "closed");
+    countProjectIssue.innerText = closedData.length;
+    // hideloading();
+    loadDisplay(closedData);
+
+}
+
+
+
 loadIssue();
