@@ -32,27 +32,10 @@
                 </a>
             </div>
             <div class="flex gap-2">
-                <input id="search-issue" type="text" placeholder="Search issues.."
-                    class="input input-bordered w-24 md:w-auto hidden md:block" />
-                <div class="sm:hidden flex items-center mr-2"><i class="fa-solid fa-magnifying-glass"></i></div>
-                <div class="dropdown dropdown-end">
-                    <div tabindex="0" role="button">
-                        <div class="">
-                            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Issue</button>
-                        </div>
-                    </div>
-                    <ul tabindex="-1"
-                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li>
-                            <a class="justify-between">
-                                Profile
-                                <span class="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
-                    </ul>
-                </div>
+                <input id="search-input" type="text" placeholder="Search.."
+                    class="input input-bordered " />
+                <button id="search-btn" class="btn btn-primary">search</button>
+                
             </div>
         </div>
     </header>
@@ -114,48 +97,24 @@
                     </div>
 
                 </div> -->
-
+                <div id="loading-spinner" class="flex items-center justify-center [h-60vh]">
+                    <span class="loading loading-spinner loading-xl"></span>
+                </div>
             </div>
 
             <!-- loading spinner -->
-            <div id="loading-spinner" class="hidden items-center justify-center [h-60vh]">
-                <span class="loading loading-spinner loading-xl"></span>
-            </div>
+
         </div>
 
     </section>
     <!-- modal -->
     <!-- Open the modal using ID.showModal() method -->
-    <button class="btn" onclick="Issue-modal.showModal()">open modal</button>
-    <dialog id="Issue-modal" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-            <h2 class="card-title">Fix navigation menu on mobile devices</h2>
-            <p><span class="badge badge-success">Success</span>•<span>Opened by</span>•</p>
-            <div class="flex gap-3 uppercase mb-3">
-                ${labelItems}
-            </div>
+    <div class="">
+        <button class="" onclick="Issue-modal.showModal()"></button>
+        <dialog id="Issue-modal" class="modal modal-bottom sm:modal-middle">
 
-            <div>
-                <div>
-                    <p>Assignee</p>
-                    <p></p>
-                </div>
-                <div>
-                    <span>Priority:</span>
-                    <div class="badge badge-secondary">Secondary</div>
-                </div>
-            </div>
-            <p class="text-gray-500 line-clamp-2">The navigation menu doesn't collapse properly on mobile
-                devices. Need to fix the responsive behavior.
-            </p>
-            <div class="modal-action">
-                <form method="dialog">
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn btn-primary">Close</button>
-                </form>
-            </div>
-        </div>
-    </dialog>
+        </dialog>
+    </div>
 
     <script src="js/script.js"></script>
 
