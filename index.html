@@ -21,8 +21,8 @@
 </head>
 
 <body class="bg-gray-200 min-h-screen flex justify-center items-center">
-    <section class="bg-white shadow-lg w-[520px] rounded-lg p-8">
-        <div class="space-y-5 mb-6">
+    <section class="bg-white shadow-lg sm:w-[520px] w-[90%] rounded-lg p-8">
+        <div class="space-y-3 mb-6">
             <div class="flex justify-center">
                 <img src="assets/github-logo.png" alt="">
             </div>
@@ -34,46 +34,43 @@
         </div>
 
 
-        <div class="mb-6">
+        <div class="mb-4">
 
 
             <label class="font-medium">Username</label> <br>
-            <input id="input-username" type="text" maxlength="5" class="input w-full p-4" placeholder="Enter Username" />
+            <input id="input-username" type="text" maxlength="5" class="input w-full p-4"
+                placeholder="Enter Username" />
             <p class="text-purple-600">Default: admin</p>
             <br>
 
 
             <label class="font-medium">Password</label> <br>
-            <input id="password-input" type="password" maxlength="8" class="input w-full p-4" placeholder="Enter Password" />
-            
+            <input id="password-input" type="password" maxlength="8" class="input w-full p-4"
+                placeholder="Enter Password" />
+
             <p class="text-purple-600">Default: admin123</p>
             <br>
 
-            <button id="signInBtn"
-             class="btn btn-primary mt-4 w-full">Sign In</button>
+            <button id="signInBtn" class="btn btn-primary mt-4 w-full">Sign In</button>
         </div>
-         <div class="grid grid-cols-13">
+        <div class="grid grid-cols-13">
             <hr class="col-span-6 text-gray-300 mt-3">
-            <p class="text-center mb-4 col-span-1">OR</p> 
+            <p class="text-center mb-4 col-span-1">OR</p>
             <hr class="col-span-6 text-gray-300 mt-3">
-         </div>
+        </div>
 
         <div class="text-center space-y-2">
             <h2 class="text-[#64748B]">Demo Credentials:</h2>
             <div class="bg-gray-100 rounded-lg p-6">
                 <p><span class="font-semibold">Username:</span> admin</p>
                 <p><span class="font-semibold">Password:</span> admin123</p>
-                    
+
             </div>
         </div>
 
-
-
-
-
     </section>
 
-    
+
 
     <script src="js/login.js"></script>
 </body>

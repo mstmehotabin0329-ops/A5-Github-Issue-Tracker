@@ -101,25 +101,22 @@ function loadDisplay(issues) {
         createElement.innerHTML = `
             <div onclick="issuesCardModal('${issue.id}')" class="card bg-base-100 shadow-xl cursor-pointer ${borderClass}">
                 <div class="card-body">
-                    <div class="h-40 w-full">
+                    <div class="h-65 w-full space-y-3">
                         <div class="flex justify-between items-start">
                             <img src="${logo}" alt="">
                             <div class="badge badge-error badge-outline uppercase text-xs">${issue.priority}</div>
                         </div>
-                        <h2 class="card-title">${issue.title}</h2>
+                        <h2 class="card-title text-sm">${issue.title}</h2>
                         <p class="text-gray-500 line-clamp-2 text-sm">${issue.description}</p>
-                        <div class="flex flex-wrap gap-1 mt-2">
+                        <div class="flex flex-wrap gap-2 mt-2 ">
                             ${labelItems}
                         </div>
-                        <div class="divider my-1"></div>
-                    </div>
-                    <div class="flex justify-between items-center text-xs text-gray-400">
-                        <div>
-                            <p>Author: <span class="font-medium text-gray-600">${issue.author}</span></p>
-                            <p>Assignee: <span class="font-medium text-gray-600">${issue.assignee}</span></p>
-                        </div>
-                        <div class="text-right">
+                        <div class="divider my-3"></div>
+                    
+                        <div class=" text-xs text-gray-400">
+                            <span class="font-medium">${issue.author}</span>
                             <p>${new Date(issue.createdAt).toLocaleDateString()}</p>
+                        
                         </div>
                     </div>
                 </div>
